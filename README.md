@@ -17,4 +17,4 @@
 #### 5. Delimeters in your data set can be colons or tabs.
 
 ### How to use:
-### sh damfish_script.sh <file1>.tsv <file2>.tsv
+### sh damfish_script.sh file1.tsv file2.tsv
