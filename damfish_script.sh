@@ -1,33 +1,77 @@
 #!/bin/bash
 
 
-#This script combines an OTU file with a taxonomic file to prep for statistical analysis
-#To use, first make sure that there are no spaces in individual column titles, add a # in front of first column in header and to any rows not containing data, and make sure that the header is the only row in front of your data.
+# This script combines an OTU file with sequencing data and a taxonomic file into one, complete file to prep for statistical analysis.
+# The user should input the names (not including the )for their OTU file with sequencing data and then their taxonomic file in the command prompt calling this script. 
 
 
-# copies column with sample ID, host, and site to new file called temp_metadata.tsv
+# The following replaces the ";" delimiter with a tab for both files and outputs it to a file calles $*_tab.tsv
+sed 's/;/\t/g' $1.tsv > $1_tab.tsv
+sed 's/;/\t/g' $2.tsv > $2_tab.tsv
 
-cat metadata.tsv | awk '{ print $1 "\t" $13 "\t" $14 }' > temp_metadata.tsv
+# The following takes the header from the OTU file with sequencing data and adds it into a separate file called $1_header.tsv.
 
-# removes the header from silva table, puts it into its own file called silva_table_header.tsv
+grep '#' $1_tab.tsv > $1_header.tsv
 
-grep '#' silva_table.tsv > silva_table_header.tsv
 
-# removes the data from silva table, puts it into its own file called silva_table_data.tsv
+# The following takes the data from the OTU file with sequencing data and adds it into a separate file called $1_data.tsv.
 
-tail -n+2 silva_table.tsv > silva_table_data.tsv
+tail -n+2 $1_tab.tsv > $1_data.tsv
 
-# sorts the silva_table_data.tsv alphabetically by the 1st column (ID names)
 
-sort -k1 silva_table_data.tsv > silva_table_sorted_data.tsv
+# The following sorts the data from the OTU file alphabetically by the first column (which should contain the ID names), and adds it to a separate file called $1_sorted_data.tsv.
 
-# puts the header back on to the sorted data table 
+sort -k1 $1_data.tsv > $1_sorted_data.tsv
 
-cat silva_table_header.tsv silva_table_sorted_data.tsv > silvatable_sorted.tsv
 
-# repeats these same steps for the temp_metadata.tsv file
+# The following adds both the header and the sorted data into a new file called $1_sorted.tsv. 
 
-grep '#' temp_metadata.tsv > metadata_header.tsv
-tail -n+2 temp_metadata.tsv > metadata_data.tsv
-sort -k1 metadata_data.tsv > metadata_data_sorted.tsv
-cat metadata_header.tsv metadata_data_sorted.tsv > metadata_sorted.tsv
+cat $1_header.tsv $1_sorted_data.tsv > $1_sorted.tsv
+
+
+# The following takes the header from the taxonomic file and adds it into a separate file called $2_header.tsv.
+
+grep '#' $2_tab.tsv > $2_header.tsv
+
+
+# The following takes the taxonomies from the taxonomic file and adds it into a separate file called $2_data.tsv.
+
+tail -n+2 $2_tab.tsv > $2_data.tsv
+
+
+# The following sorts the taxonomies from the taxonomic file alphabetically by the first column (which should contain the ID names), and adds it to a separate file called $2_sorted_data.tsv
+
+sort -k1 $2_data.tsv > $2_sorted_data.tsv
+
+
+# The following adds both the header and the sorted data into a new file called $2_sorted.tsv.
+
+cat $2_header.tsv $2_sorted_data.tsv > $2_sorted.tsv
+
+
+# The following adds both the OTU file with sequencing data and the taxonomic file together into a file called combined_$1_$2.tsv.
+
+paste $2_sorted.tsv $1_sorted.tsv > combined_$1_$2.tsv
+
+
+# The following removes all the files made while running the script.
+
+rm $1_tab.tsv
+
+rm $1_header.tsv
+
+rm $1_data.tsv
+
+rm $1_sorted_data.tsv
+
+rm $1_sorted.tsv
+
+rm $2_tab.tsv
+
+rm $2_header.tsv
+
+rm $2_data.tsv
+
+rm $2_sorted_data.tsv
+
+rm $2_sorted.tsv
