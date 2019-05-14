@@ -18,10 +18,10 @@
 #### FINALLY:
 #### 6. Make sure all the files that you wish to use this code on have their line ending in UNIX. This can be accomplished in the following way:
 ####	- MAC:
-#####		- Using Text Wrangler, open both files and save with an ending in UNIX.
+######		- Using Text Wrangler, open both files and save with an ending in UNIX.
 ####	- WINDOWS:
-#####		- Using Atom, download the "Converting Line Endings to" package. Open both files, and then, under packages, click on the package and select Unix. Save the file.
+######		- Using Atom, download the "Converting Line Endings to" package. Open both files, and then, under packages, click on the package and select Unix. Save the file.
 
-### To use write the following, replacing File1 and File2 with your specific name for the files you wish toe include.
+### To use write the following, replacing File1 and File2 with your specific name for the files you wish to include.
 ####	- File1 should be the OTU sequencing data, and File2 should be the taxonomy file.
-### sh damfish_script.sh File1 File2
+## sh damfish_script.sh File1 File2
