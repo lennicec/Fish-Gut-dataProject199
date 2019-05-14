@@ -5,7 +5,9 @@
 
 #### This program will take an input of an OTU file and a metadata file with taxonomic sequencing data. It will then combine the two files into one larger file. This file will then be run in R to analyze the data visually.
 
+
 #### This program will require Hoffman2 for organizing the data and R for analyzing the data.
+
 
 #### To use the program, go through these steps first to make sure your data files are compatible:
 #### 1. Make sure that both of your data files have the same number of rows and only include columns you want to be a part of your analysis.
