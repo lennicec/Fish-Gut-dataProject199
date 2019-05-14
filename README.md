@@ -15,3 +15,6 @@
 #### 3. Make sure that each sample has a unique feature ID and that the feature IDs are the same between both files
 #### 4. Make sure that the header is only 1 row and that the header is the only row before the data 
 #### 5. Delimeters in your data set can be colons or tabs.
+
+### How to use:
+### sh damfish_script.sh <file1>.tsv <file2>.tsv
