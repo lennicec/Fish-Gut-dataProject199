@@ -7,4 +7,9 @@
 
 #### This program will require Hoffman2 for organizing the data and R for analyzing the data.
 
-#### To use the program, make sure that both of your data files have the same number of rows and only include columns you want to be a part of your analysis. Put a # in front of the headers for your data files and in front of any other rows you want to be excluded. Make sure that each sample has a unique feature ID and that the feature IDs are the same between both files. Make sure that the header is only 1 row and that the header is the only row before the data. Delimeters in oyur data set can be colons or tabs.
+#### To use the program, go through these steps first to make sure your data files are compatible:
+#### 1. make sure that both of your data files have the same number of rows and only include columns you want to be a part of your analysis.
+#### 2. Put a # in front of the headers for your data files and in front of any other rows you want to be excluded. 
+#### 3. Make sure that each sample has a unique feature ID and that the feature IDs are the same between both files
+#### 4. Make sure that the header is only 1 row and that the header is the only row before the data 
+#### 5. Delimeters in oyur data set can be colons or tabs.
