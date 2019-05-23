@@ -7,7 +7,7 @@
 
 # The following replaces the ";" delimiter with a tab for both files and outputs it to a file calles $*_tab.tsv
 sed 's/;/\t/g' $1.tsv > $1_tab.tsv
-sed 's/;/\t/g' $2.tsv > $2_tab.tsv
+# sed 's/;/\t/g' $2.tsv > $2_tab.tsv
 
 # The following takes the header from the OTU file with sequencing data and adds it into a separate file called $1_header.tsv.
 
@@ -31,12 +31,12 @@ cat $1_header.tsv $1_sorted_data.tsv > $1_sorted.tsv
 
 # The following takes the header from the taxonomic file and adds it into a separate file called $2_header.tsv.
 
-grep '#' $2_tab.tsv > $2_header.tsv
+grep '#' complete_$2.tsv > $2_header.tsv
 
 
 # The following takes the taxonomies from the taxonomic file and adds it into a separate file called $2_data.tsv.
 
-tail -n+2 $2_tab.tsv > $2_data.tsv
+tail -n+2 complete_$2.tsv > $2_data.tsv
 
 
 # The following sorts the taxonomies from the taxonomic file alphabetically by the first column (which should contain the ID names), and adds it to a separate file called $2_sorted_data.tsv
@@ -66,7 +66,7 @@ rm $1_sorted_data.tsv
 
 rm $1_sorted.tsv
 
-rm $2_tab.tsv
+# rm $2_tab.tsv
 
 rm $2_header.tsv
 

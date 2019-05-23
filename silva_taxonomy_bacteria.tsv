@@ -1,4 +1,4 @@
-# Feature ID	Taxon	Confidence
+#FeatureID	Taxon	Confidence
 034ee21c21aea93013366ef6a3f9ec38	D_0__Bacteria;D_1__Proteobacteria;D_2__Gammaproteobacteria;D_3__Pseudomonadales;D_4__Pseudomonadaceae;D_5__Pseudomonas	0.9996870055053467
 12f9d0d7998f2562695a39e7bd31a340	D_0__Bacteria;D_1__Actinobacteria;D_2__Thermoleophilia;D_3__Gaiellales;D_4__uncultured	0.9356251233941008
 d659f1200d068f41d0064485255d2436	D_0__Bacteria;D_1__Chlamydiae;D_2__Chlamydiae;D_3__Chlamydiales;D_4__cvE6	0.9998505870545086
