@@ -180,7 +180,7 @@ echo "OTU file is ready..."
 
 # The following takes the header from the taxonomic file and adds it into a separate file called $2_header.tsv.
 
-grep '#' complete_$2.tsv > $2_header.tsv
+grep '#' complete_taxon_$2.tsv > $2_header.tsv
 
 echo "Processing the taxonomic file..."
 
@@ -204,7 +204,7 @@ echo "Taxonomic file is ready..."
 
 # The following adds both the OTU file with sequencing data and the taxonomic file together into a file called combined_$1_$2.tsv.
 
-paste $2_sorted.tsv $1_sorted.tsv > combined_$1_$2.tsv
+paste $2_sorted.tsv $1_sorted.tsv > $3.tsv
 
 echo "The OTU file and taxonomic file has been merged..."
 
