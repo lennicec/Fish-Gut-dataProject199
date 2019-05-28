@@ -173,7 +173,7 @@ sort -k1 $1_data.tsv > $1_sorted_data.tsv
 
 # The following adds both the header and the sorted data into a new file called $1_sorted.tsv. 
 
-cat $1_header.tsv $1_sorted_data.tsv > $1_sorted.tsv
+cat $1_header.tsv $1_sorted_data.tsv > otu_table.tsv
 
 echo "OTU file is ready..."
 
@@ -197,14 +197,14 @@ sort -k1 $2_data.tsv > $2_sorted_data.tsv
 
 # The following adds both the header and the sorted data into a new file called $2_sorted.tsv.
 
-cat $2_header.tsv $2_sorted_data.tsv > $2_sorted.tsv
+cat $2_header.tsv $2_sorted_data.tsv > taxonomy.tsv
 
 echo "Taxonomic file is ready..."
 
 
 # The following adds both the OTU file with sequencing data and the taxonomic file together into a file called combined_$1_$2.tsv.
 
-paste $2_sorted.tsv $1_sorted.tsv > $3.tsv
+paste taxonomy.tsv otu_table.tsv > $3.tsv
 
 echo "The OTU file and taxonomic file has been merged..."
 
@@ -221,17 +221,11 @@ rm $1_data.tsv
 
 rm $1_sorted_data.tsv
 
-rm $1_sorted.tsv
-
-# rm $2_tab.tsv
-
 rm $2_header.tsv
 
 rm $2_data.tsv
 
 rm $2_sorted_data.tsv
-
-rm $2_sorted.tsv
 
 
 echo "The files are ready! :)"
