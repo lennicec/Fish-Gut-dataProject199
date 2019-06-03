@@ -158,7 +158,7 @@ echo "Processing the OTU file..."
 
 # The following takes the header from the OTU file with sequencing data and adds it into a separate file called $1_header.tsv.
 
-grep '#' $1_tab.tsv > $1_header.tsv
+head -n+1 $1_tab.tsv > $1_header.tsv
 
 
 # The following takes the data from the OTU file with sequencing data and adds it into a separate file called $1_data.tsv.
@@ -180,7 +180,7 @@ echo "OTU file is ready..."
 
 # The following takes the header from the taxonomic file and adds it into a separate file called $2_header.tsv.
 
-grep '#' complete_taxon_$2.tsv > $2_header.tsv
+head -n+1 complete_taxon_$2.tsv > $2_header.tsv
 
 echo "Processing the taxonomic file..."
 

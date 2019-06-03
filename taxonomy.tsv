@@ -1,4 +1,4 @@
-#FeatureID	Kingdom   Phylum  Class   Order   Family  Genus   Species
+FeatureID	Kingdom   Phylum  Class   Order   Family  Genus   Species
 000a917bb2afbd31cb038bcf505099ec	D_0__Bacteria	D_1__Acidobacteria	D_2__Subgroup    unassigned      unassigned      unassigned      unassigned
 000c7ff58c9628cf43200c8b96e5188f	D_0__Bacteria    unassigned      unassigned      unassigned      unassigned	unassigned	unassigned
 000dbd5d04f8f3cfe2b5a459d564c3b9	D_0__Bacteria	D_1__Bacteroidetes	D_2__Bacteroidia	D_3__Flavobacteriales	D_4__Flavobacteriaceae	D_5__NS2b   unassigned
