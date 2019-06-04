@@ -26,9 +26,18 @@
 #####	- This script will take a taxonomic file that does not have a complete taxonomy breakdown for each Feature ID. Use this script if your taxonomic file has the taxon breakdown in one column, and also contains empty cells.
 #####	- The script will fill empty cells in the taxonomic file with "unassigned", and will add columns with the titles Kingdom, Phylum, Class, Order, Family, Genus, Species.   
 #####	- The script will continue through the rest of the damfish script, and will combine the OTU file and the taxonomic file into one, complete file.
+#####	- OUTPUT:
+#####		This script will output the sorted, filled taxonomy file as $3_taxonomy_filled.tsv, where $3 is the OutputFileName you specify in the command line.
+#####		This script will output the sorted OTU table as $3_otu_table.tsv.
+#####		This script will output the combined OTU and taxonomy file as $3.tsv.
+
 #### damfish_script.sh:
 #####	- This script will take a taxonomic file that already has the complete taxon for the Feature ID's, AND does not contain any empty cells.
 #####	- The script will combine the OTU file with the taxonomy file into one, complete file.
+#####	- OUTPUT
+#####		This script will output the sorted taxonomy file as $3_taxonomy.tsv, where #3 is the OutputFileName you specify in the command line.
+#####           This script will output the sorted OTU table as $3_otu_table.tsv.
+#####		This script will output the combined OTU and taxonomy file as $3.tsv.
 
 ### TO USE DAMFISH_SCRIPT_FILLER.SH:
 ###	sh damfish_script_filler.sh File1 File2 OutputFileName 
@@ -45,6 +54,6 @@
 #### TO USE THE SAMPLE DATA:
 #####	- Download the following data and the scripts, then load it into Hoffman2: SAMPLE1.tsv SAMPLE2.tsv SAMPLEincomplete.tsv
 #####	- Use the following commands to test the scripts:
-####		sh damfish_script_filler.sh SAMPLE1 SAMPLEincomplete OUTPUT_filler	
-####		sh damfish_script.sh SAMPLE1 SAMPLE2 OUTPUT
+####		sh damfish_script_filler.sh SAMPLE1 SAMPLEincomplete SAMPLEscript_filler	
+####		sh damfish_script.sh SAMPLE1 SAMPLE2 SAMPLEscript
 
