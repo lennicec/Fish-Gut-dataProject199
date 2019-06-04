@@ -64,18 +64,18 @@ physeq.complete <- subset(physeq.combined, Abundance > 5)
 
 # Plots the abundance of the samples with the phylum filled in.
 print("Graphing the abundance of the samples with the phylum filled in - available as SAMPLE1.pdf in working directory...")
-pdf("SAMPLE1.pdf")
+pdf("abundance_of_samples.pdf")
 ggplot(physeq.complete, aes(x = Sample, y = Abundance, fill = Phylum)) + geom_bar(stat = "identity", width = 0.5) + labs(title = "Sample Abundance with Phylum") + theme(axis.text.x = element_text(angle=90,hjust=1,vjust=0.5, size=7))
 dev.off()
 
 # Plots the abundance of the bacteria Phylum, with coloration for the Host fish species, grouped by site.
 print("Graphing the abundance of the bacteria Phylum, with host species filled in and grouped by site - available as SAMPLE2.pdf in working directory...")
-pdf("SAMPLE2.pdf")
+pdf("abundance_of_phylum.pdf")
 ggplot(physeq.complete, aes(x = Phylum, y = Abundance, fill = Host)) + geom_bar(stat = "identity", width = 0.5)  + labs(title = "Phylum Abundance with Host Species Grouped by Site") + facet_grid(.~Site) + theme(axis.text.x = element_text(angle=90,hjust=1,vjust=0.5, size=7), panel.spacing = unit(0, 'line'))
 dev.off()
 
 # Plots the abundance of the fish species, with coloration for the phylum, grouped by site.
 print("Graphing the abundance of the host species, with phylum filled in and grouped by site - available as SAMPLE3.pdf in the working directory...")
-pdf("SAMPLE3.pdf")
+pdf("abundance_of_host.pdf")
 ggplot(physeq.complete, aes(x = Host, y = Abundance, fill = Phylum)) + geom_bar(stat = "identity", width = 0.5)  + facet_grid(.~Site) + labs(title = "Host Species Abundance with Phylum Grouped by Site") + theme(axis.text.x = element_text(angle=90,hjust=1,vjust=0.5, size=7), panel.spacing = unit(0, 'line'))
 dev.off()
