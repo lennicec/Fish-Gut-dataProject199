@@ -1,15 +1,16 @@
-# This script will take a phyloseq object and create plots using ggplot2.
+# This is the sample R script for DAM Fish with plots.
 
 # Loads the necessary libraries.
-print("Loading the libraries...")
-library("ggplot2")
-library("ape")
-library("digest")
-#source('http://bioconductor.org/biocLite.R')
-#biocLite('phyloseq')
-library("phyloseq")
-#remotes::install_github("vmikk/metagMisc")
-library("metagMisc")
+# print("Loading the libraries...")
+# library("ggplot2")
+# library("ape")
+# library("digest")
+# source('http://bioconductor.org/biocLite.R')
+# biocLite('phyloseq')
+# library("phyloseq")
+# install.packages("remotes")
+# remotes::install_github("vmikk/metagMisc")
+# library("metagMisc")
 
 # Inputs the OTU file into R.
 print("Inputting OTU file...")
@@ -41,7 +42,13 @@ head(taxa_names(OTU))
 print("Creating a phyloseq object...")
 physeq <- phyloseq(OTU, TAX, META)
 physeq
-print("You're phyloseq object is ready :)")
+print("Your phyloseq object is ready :)")
+
+# Converts the phyloseq object to a data frame to output as a .tsv file.
+print("Creating your phyloseq object as a .tsv file...")
+physeqDF <- phyloseq_to_df(physeq)
+write.table(physeqDF, file = "phyloseq_object.tsv")
+print("Your phyloseq object is available as phyloseq_object.tsv:)")
 
 # Takes the specific taxa we are looking for in the phyloseq object and compacts it into a new phyloseq object.
 print("Grabbing taxa...")

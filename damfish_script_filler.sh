@@ -171,9 +171,9 @@ tail -n+2 $1_tab.tsv > $1_data.tsv
 sort -k1 $1_data.tsv > $1_sorted_data.tsv
 
 
-# The following adds both the header and the sorted data into a new file called $3_otu_table.tsv. 
+# The following adds both the header and the sorted data into a new file called otu_table.tsv. 
 
-cat $1_header.tsv $1_sorted_data.tsv > $3_otu_table.tsv
+cat $1_header.tsv $1_sorted_data.tsv > otu_table.tsv
 
 echo "OTU file is ready..."
 
@@ -195,9 +195,9 @@ tail -n+2 complete_taxon_$2.tsv > $2_data.tsv
 sort -k1 $2_data.tsv > $2_sorted_data.tsv
 
 
-# The following adds both the header and the sorted data into a new file called $3_taxonomy.tsv.
+# The following adds both the header and the sorted data into a new file called taxonomy.tsv.
 
-cat $2_header.tsv $2_sorted_data.tsv > $3_taxonomy.tsv
+cat $2_header.tsv $2_sorted_data.tsv > taxonomy.tsv
 
 echo "Taxonomic file is ready..."
 

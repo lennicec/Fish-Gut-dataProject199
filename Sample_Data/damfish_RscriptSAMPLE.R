@@ -1,13 +1,16 @@
+# This is the script with the sample files for the DAM Fish program.
+
 # Loads the necessary libraries.
-print("Loading the libraries...")
-library("ggplot2")
-library("ape")
-library("digest")
-#source('http://bioconductor.org/biocLite.R')
-#biocLite('phyloseq')
-library("phyloseq")
-#remotes::install_github("vmikk/metagMisc")
-library("metagMisc")
+# print("Loading the libraries...")
+# library("ggplot2")
+# library("ape")
+# library("digest")
+# source('http://bioconductor.org/biocLite.R')
+# biocLite('phyloseq')
+# library("phyloseq")
+# install.packages("remotes")
+# remotes::install_github("vmikk/metagMisc")
+# library("metagMisc")
 
 # Inputs the OTU file into R.
 print("Inputting OTU file...")
@@ -23,7 +26,7 @@ taxonomy <- as.matrix(taxonomy)
 
 # Inputs the metadata file into R.
 print("Inputting metadata file...")
-metadata <- read.table("metadataFIXED.tsv", row.names = 1, header = TRUE, fill = TRUE)
+metadata <- read.table("metadataSAM.tsv", row.names = 1, header = TRUE, fill = TRUE)
 
 #Converts the matrixes into usable phyloseq variables.
 print("Getting ready to create a phyloseq object...")
@@ -40,3 +43,9 @@ print("Creating a phyloseq object...")
 physeq <- phyloseq(OTU, TAX, META)
 physeq
 print("Your phyloseq object is ready :)")
+
+# Converts the phyloseq object into a data frame to create a .tsv file.
+print("Creating your phyloseq object as a .tsv file...")
+physeqDF <- phyloseq_to_df(physeq)
+write.table(physeqDF, file = "phyloseq_object.tsv")
+print("Your phyloseq object is available as phyloseq_object.tsv:)")
