@@ -118,7 +118,7 @@ tail -n+2 filled_columns_$2.tsv > filled_data_$2.tsv
 echo "Kingdom   Phylum  Class   Order   Family  Genus   Species" > filled_header_$2.tsv
 
 
-# Adds the header and the data into a new, final file called complete_$2.tsv
+# Adds the header and the data into a new, final file called taxon_$2.tsv
 
 cat filled_header_$2.tsv filled_data_$2.tsv > taxon_$2.tsv
 
@@ -171,9 +171,9 @@ tail -n+2 $1_tab.tsv > $1_data.tsv
 sort -k1 $1_data.tsv > $1_sorted_data.tsv
 
 
-# The following adds both the header and the sorted data into a new file called $1_sorted.tsv. 
+# The following adds both the header and the sorted data into a new file called $3_otu_table.tsv. 
 
-cat $1_header.tsv $1_sorted_data.tsv > otu_table.tsv
+cat $1_header.tsv $1_sorted_data.tsv > $3_otu_table.tsv
 
 echo "OTU file is ready..."
 
@@ -195,14 +195,14 @@ tail -n+2 complete_taxon_$2.tsv > $2_data.tsv
 sort -k1 $2_data.tsv > $2_sorted_data.tsv
 
 
-# The following adds both the header and the sorted data into a new file called $2_sorted.tsv.
+# The following adds both the header and the sorted data into a new file called $3_taxonomy.tsv.
 
-cat $2_header.tsv $2_sorted_data.tsv > taxonomy.tsv
+cat $2_header.tsv $2_sorted_data.tsv > $3_taxonomy.tsv
 
 echo "Taxonomic file is ready..."
 
 
-# The following adds both the OTU file with sequencing data and the taxonomic file together into a file called combined_$1_$2.tsv.
+# The following adds both the OTU file with sequencing data and the taxonomic file together into a file called $3.tsv.
 
 paste taxonomy.tsv otu_table.tsv > $3.tsv
 
@@ -227,5 +227,6 @@ rm $2_data.tsv
 
 rm $2_sorted_data.tsv
 
+rm complete_taxon_$2.tsv
 
 echo "The files are ready! :)"
