@@ -1,16 +1,16 @@
 # This is the sample R script for DAM Fish with plots.
 
 # Loads the necessary libraries.
-# print("Loading the libraries...")
-# library("ggplot2")
-# library("ape")
-# library("digest")
+print("Loading the libraries...")
+library("ggplot2")
+library("ape")
+library("digest")
 # source('http://bioconductor.org/biocLite.R')
 # biocLite('phyloseq')
-# library("phyloseq")
+library("phyloseq")
 # install.packages("remotes")
 # remotes::install_github("vmikk/metagMisc")
-# library("metagMisc")
+library("metagMisc")
 
 # Inputs the OTU file into R.
 print("Inputting OTU file...")
