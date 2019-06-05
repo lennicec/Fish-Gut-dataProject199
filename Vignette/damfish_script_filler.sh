@@ -204,7 +204,7 @@ echo "Taxonomic file is ready..."
 
 # The following adds both the OTU file with sequencing data and the taxonomic file together into a file called $3.tsv.
 
-paste taxonomy.tsv otu_table.tsv > $3.tsv
+paste $3_taxonomy.tsv $3_otu_table.tsv > $3.tsv
 
 echo "The OTU file and taxonomic file has been merged..."
 

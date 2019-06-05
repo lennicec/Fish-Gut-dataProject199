@@ -20,7 +20,7 @@ echo "Processing the OTU  and taxonomic files..."
 
 # The following takes the header from the OTU file with sequencing data and adds it into a separate file called $1_header.tsv.
 
-grep '#' $1_tab.tsv > $1_header.tsv
+head -n+1 $1_tab.tsv > $1_header.tsv
 
 
 # The following takes the data from the OTU file with sequencing data and adds it into a separate file called $1_data.tsv.
@@ -42,7 +42,7 @@ echo "OTU file is ready..."
 
 # The following takes the header from the taxonomic file and adds it into a separate file called $2_header.tsv.
 
-grep '#' $2_tab.tsv > $2_header.tsv
+head -n+1 $2_tab.tsv > $2_header.tsv
 
 echo "Processing the taxonomic file..."
 
@@ -66,7 +66,7 @@ echo "Taxonomic file is ready..."
 
 # The following adds both the OTU file with sequencing data and the taxonomic file together into a file called combined_$1_$2.tsv.
 
-paste taxonomy.tsv otu_table.tsv > $3.tsv
+paste $3_taxonomy.tsv $3_otu_table.tsv > $3.tsv
 
 echo "The OTU file and taxonomic file has been merged..."
 
@@ -93,9 +93,4 @@ rm $2_sorted_data.tsv
 
 
 echo "The files are ready! :)"
-
-echo "Now running R code..."
-
-module load R/3.4.0
-Rscript damfish_Rscript.r
 

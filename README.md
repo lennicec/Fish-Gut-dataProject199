@@ -87,7 +87,7 @@ remotes::install_github("vmikk/metagMisc")
 ### TO USE THE SAMPLE DATA IN THE VIGNETTE:
 #####	- Download the following data and the scripts, then load it into Hoffman2: SAMPLEotu_table.tsv SAMPLEtaxonomy.tsv SAMPLEtaxonomy_filled.tsv
 #####	- Use the following commands to test the scripts:
-####		sh damfish_script_filler.sh SAMPLEotu_table SAMPLEtaxonomy SAMPLEscript_filler.tsv	
+####		sh damfish_script_filler.sh SAMPLEotu_table SAMPLEtaxonomy SAMPLEscript_filler	
 ####		sh damfish_script.sh SAMPLEotu_table SAMPLEtaxonomy_filled SAMPLEscript
 
 ### References:
