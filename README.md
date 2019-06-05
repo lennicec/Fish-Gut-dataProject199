@@ -64,7 +64,7 @@ biocLite('phyloseq')
 ####		- OutputFileName should be the name you want the complete, merged file to have, without a line ending such as .tsv. 
 
 
-### TO USE THE SAMPLE DATA:
+### TO USE THE SAMPLE DATA IN THE VIGNETTE:
 #####	- Download the following data and the scripts, then load it into Hoffman2: SAMPLE1.tsv SAMPLE2.tsv SAMPLEincomplete.tsv
 #####	- Use the following commands to test the scripts:
 ####		sh damfish_script_filler.sh SAMPLE1 SAMPLEincomplete SAMPLEscript_filler	
