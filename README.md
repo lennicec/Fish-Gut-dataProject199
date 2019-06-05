@@ -18,15 +18,17 @@
 #### 2. The first line in both files should be the header, with the column names. Only include one row above the data that does not contain data itself. Make sure that there are no spaces in between the words of a column title, if the title has more than one word in the same column. 
 #### 3. Make sure that each sample has a unique feature ID and that the feature IDs are the same between both files.
 #### 4. Delimiters in your data set can be semi-colons or tabs only.
-#### 5. Install the following R packages in in the Hoffman2 terminal using the following code:
+#### 5. When running the DAMFish R program, install the following R packages in the Hoffman2 terminal using the following code:
 ```{r}
 module load R
 R
 install.packages("ggplot2")
 install.packages("ape")
-intall.packages("digest")
+install.packages("digest")
 source('http://bioconductor.org/biocLite.R')
 biocLite('phyloseq')
+install.packages("remotes")
+remotes::install_github("vmikk/metagMisc")
 ```
 #### 6. Make sure all the files that you wish to use this code on have their line ending in UNIX. This can be accomplished in the following way:
 ####	- MAC:
@@ -35,22 +37,23 @@ biocLite('phyloseq')
 ######		- Using Atom, download the "Converting Line Endings to" package. Open both files, and then, under packages, click on the package and select Unix. Save the file.
 
 ### Instructions
+
 ### Which file do I use?
 #### damfish_script_filler.sh: 
 #####	- This script will take a taxonomic file that does not have a complete taxonomy breakdown for each Feature ID. Use this script if your taxonomic file has the taxon breakdown in one column, and also contains empty cells.
 #####	- The script will fill empty cells in the taxonomic file with "unassigned", and will add columns with the titles Kingdom, Phylum, Class, Order, Family, Genus, Species.   
 #####	- The script will continue through the rest of the damfish script, and will combine the OTU file and the taxonomic file into one, complete file.
 #####	- OUTPUT:
-#####		Along with the R object 'phyloseq', this script will output the sorted, filled taxonomy file as $3_taxonomy_filled.tsv, where $3 is the OutputFileName you specify in the command line.
-#####		This script will output the sorted OTU table as $3_otu_table.tsv.
+#####		This script will output the sorted, filled taxonomy file as taxonomy_filled.tsv, where $3 is the OutputFileName you specify in the command line.
+#####		This script will output the sorted OTU table as otu_table.tsv.
 #####		This script will output the combined OTU and taxonomy file as $3.tsv.
 
 #### damfish_script.sh:
 #####	- This script will take a taxonomic file that already has the complete taxon for the Feature ID's, AND does not contain any empty cells.
 #####	- The script will combine the OTU file with the taxonomy file into one, complete file.
 #####	- OUTPUT
-#####		Along with the R object 'phyloseq', this script will output the sorted taxonomy file as $3_taxonomy.tsv, where #3 is the OutputFileName you specify in the command line.
-#####           This script will output the sorted OTU table as $3_otu_table.tsv.
+#####		This script will output the sorted taxonomy file as taxonomy.tsv, where #3 is the OutputFileName you specify in the command line.
+#####           This script will output the sorted OTU table as otu_table.tsv.
 #####		This script will output the combined OTU and taxonomy file as $3.tsv.
 
 ### TO USE DAMFISH_SCRIPT_FILLER.SH:
@@ -65,14 +68,30 @@ biocLite('phyloseq')
 ####		- File2 should be the name of your taxonomy file without a file ending such as .tsv
 ####		- OutputFileName should be the name you want the complete, merged file to have, without a line ending such as .tsv. 
 
+### TO USE DAMFISH_RSCRIPT.R:
+#####		- Make sure you are running the DAMFish R program in the same directory you ran the DAMFish Bash Program. This is because the DAMFish R program uses the files otu_table.tsv and taxonomy.tsv that were created through the DAMFish program.
+#####		- Make sure that you have the metadata file in the same directory, with the name of the metadata file being metadata.tsv.
+###	Rscript damfish_Rscript.R 
+#####		- The DAMFish R program will output the phyloseq object that contains the OTU file, taxonomy file, and the metadata file into a .tsv file called phyloseq_object.tsv.
+
+### TO USE DAMFISH_RPLOTS.R:
+#####		- Make sure you are running the DAMFish Rplots program in the same directory that the DAMFish Bash program was run, as the DAMFish Rplots program requires the files otu_table.tsv and taxonomy.tsv.
+#####		- Make sure that you have the metadat file in the same directory and that it is called metadata.tsv.
+###	Rscript damfish_Rplots.R
+#####		- The DAMFish Rplots program will output the phyloseq object containing the OTU file, taxonomy file, and metadata file into a .tsv file called phyloseq_object.tsv.
+#####		- The DAMFish Rplots program will output the following three bar plots in .pdf files:
+#####			- Sample Abundance with Phylum filled in
+#####			- Phylum Abundance with Host filled in, grouped by site
+#####			- Host Abundance with Phylum filled in, grouped by site
 
 ### TO USE THE SAMPLE DATA IN THE VIGNETTE:
-#####	- Download the following data and the scripts, then load it into Hoffman2: SAMPLE1.tsv SAMPLE2.tsv SAMPLEincomplete.tsv
+#####	- Download the following data and the scripts, then load it into Hoffman2: SAMPLEotu_table.tsv SAMPLEtaxonomy.tsv SAMPLEtaxonomy_filled.tsv
 #####	- Use the following commands to test the scripts:
-####		sh damfish_script_filler.sh SAMPLE1 SAMPLEincomplete SAMPLEscript_filler	
-####		sh damfish_script.sh SAMPLE1 SAMPLE2 SAMPLEscript
+####		sh damfish_script_filler.sh SAMPLEotu_table SAMPLEtaxonomy SAMPLEscript_filler.tsv	
+####		sh damfish_script.sh SAMPLEotu_table SAMPLEtaxonomy_filled SAMPLEscript
 
 ### References:
-#### Phyloseq - https://github.com/joey711/phyloseq
+#### Phyloseq - https://github.com/joey711/phyloseq/
+#### metagMisc - https://rdrr.io/github/vmikk/metagMisc/
 
 
