@@ -8,8 +8,21 @@
 #### The purpose of the DAMFish program is to make analysis of microbiome census data easier and faster to researchers. It is often difficult to organize and combine massive datasets of taxonomic sequencing data and long OTU files. The DAMFish program combines the files using the Feature ID to keep them organized and processes them into R to be analyzed easily using the phyloseq package. The DAMFish program also outputs an alphabetically sorted OTU file and taxonomy file. The DAMFish program is also able to fill empty information in the taxonomy file with "unassigned" to make the merging of the OTU file and the taxonomy file easier to compile. 
 
 ### Program Workflow:
-#### The DAMFish program will take an input of an OTU file that contains sequencing data, and a taxonomy file that contains the taxonomic information for the sequencing data. The DAMFish program will individually sort the two files alphabetically and output the files as otu_table.tsv and taxonomy.tsv. If the taxonomic file inputted has empty taxonomic data for some Feature ID's, there is another version of the DAMFish program that can fill the empty slots with "unassigned" before continuing. Once the two files are sorted, they are merged together into one .tsv file with the name specified by the user in the command line. The combined file is available for viewing to assist the program user when they are looking at their sequencing data outside a program. The sorted OTU file and taxonomy file can further be inputted into the DAMFish R program, where the files will be inputted and merged with a metadata file provided by the user to create a "phyloseq" object using the phyloseq package, which enables a variety of options for visualizing and analyzing microbiome sequencing data. Another version of the DAMFish R program can be used to output suggested plots, but based on the individuality of user's data and research questions, we suggest that you determine your own plots using the ggplot2 package in R.
-
+#### 1. The OTU file and the taxonomy file are inputted into the code.
+####	If the taxonomy file is not filled entirely, the DAMFish program will run the file through a while loop that adds "unassigned" into empty taxonomy breakdowns and split the single taxon column into a column each for Kingdom, Phylum, Class, Order, Family, Genus, and Species.
+#### 2. The header files for each file is removed and saved into another file.
+#### 3. The data in the files are removed and saved into another file.
+#### 4. The data is sorted alphabetically for each file.
+#### 5. The header and sorted data for each file is added into a separate, final file called otu_table.tsv and taxonomy.tsv.
+#### 6. The sorted OTU file and taxonomy file are combined, with the columns of the taxonomy file before the OTU file, into the final file that the user specified in the command line.
+#### 7. The R code inputs the sorted OTU file and the taxonomy file and converts them to matrices.
+#### 8. The metadata file is inputted into R as well.
+#### 9. The three matrices are converted into one phyloseq object through the phyloseq object.
+#### 10. In the damfish_Rplots.R program, the phyloseq object is converted into a data frame object.
+#### 11. The data frame object is then plotted using ggplot, geom_bar, and theme.  
+#### NOTES: The combined OTU and taxonomy file is available for viewing to assist the program user when they are looking at their sequencing data.
+####	    The "phyloseq" object created using the phyloseq package enables a variety of options for visualizing and analyzing microbiome sequencing data. 
+####	    The program damfish_Rplots.R will output suggested plots, but based on the individuality of user's data and research questions, we suggest that you determine your own plots using the ggplot2 package in R.
 
 ### Dependencies:
 #### This program will require Hoffman2 and R/3.4.0
