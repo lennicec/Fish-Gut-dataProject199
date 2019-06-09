@@ -1,4 +1,5 @@
 DAMFish
+
 Data Analysis of Bacterial Microbiome of Fish
 (OR ANY OTHER SPECIES)
 
@@ -9,7 +10,7 @@ The purpose of the DAMFish program is to take an OTU file and a taxonomy file fr
 
 Program Workflow:
 1. The OTU file and the taxonomy file are inputted into the code using the command line.
-If the taxonomy file does not have a complete taxonomic rank, the DAMFish program titled damfish_script_filler.sh will run the file through a while loop that adds "unassigned" into empty taxonomy breakdowns and split the single taxon column into a column each for Kingdom, Phylum, Class, Order, Family, Genus, and Species.
+	If the taxonomy file does not have a complete taxonomic rank, the DAMFish program titled damfish_script_filler.sh will run the file through a while loop that adds "unassigned" into empty taxonomy breakdowns and split the single taxon column into a column each for Kingdom, Phylum, Class, Order, Family, Genus, and Species.
 2. The header for each file is removed and saved into another file.
 3. The data in the files are removed and saved into another file.
 4. The data is sorted alphabetically for each file.
@@ -19,15 +20,18 @@ If the taxonomy file does not have a complete taxonomic rank, the DAMFish progra
 8. The OTU file and taxonomy file are converted to matrices.
 9. The three matrices are converted into one phyloseq object through the phyloseq object.
 The two programs are complete and are available to view and to analyze!
+
 NOTES: The combined OTU and taxonomy file is available for viewing to assist the program user when they are looking at their sequencing data.
 The "phyloseq" object created using the phyloseq package enables a variety of options for visualizing and analyzing microbiome sequencing data.
  
 Dependencies:
+
 This program will require Hoffman2 and R/3.4.0
 To use the program, go through these steps first to make sure your data files are compatible:
 1. Make sure that the OTU and taxonomy files are compatible with one another (both have the same number of rows and the same Feature ID’s). 
 2. The first line in both files should be the header that contains the column names. There should not be spaces between words within the same column. 
 5. When running the DAMFish R program, install the following R packages in the Hoffman2 terminal using the following code:
+
 module load R
 R
 install.packages("ggplot2")
@@ -38,15 +42,13 @@ biocLite('phyloseq')
 install.packages("remotes")
 remotes::install_github("vmikk/metagMisc")
 6. Make sure all the files that you wish to use this code on have their line ending in UNIX. This can be accomplished in the following way:
-- MAC:
-- Using Text Wrangler, open both files and save with an ending in UNIX.
-- WINDOWS:
-- Using Atom, download the "Converting Line Endings to" package. Open both files, and then, under packages, click on the package and select Unix. Save the file.
+	- MAC: Using Text Wrangler, open both files and save with an ending in UNIX.
+	- WINDOWS: Using Atom, download the "Converting Line Endings to" package. Open both files, and then, under packages, click on the package and select Unix. Save the file.
 
 Instructions
 
 damfish_script_filler.sh:
-Use if your taxonomic rank is not complete and all in one column!
+	Use if your taxonomic rank is not complete and all in one column!
 sh damfish_script_filler.sh File1 File2 OutputFileName
 - File1 should be the name of your OTU file without a file ending such as .tsv
 - File2 should be the name of your taxonomy file without a file ending such as .tsv
