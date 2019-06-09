@@ -1,8 +1,9 @@
-# **DAMFISH**
+# DAMFish
 ---------------
-## **D**ATA **A**NALYSIS OF BACTERIAL **M**ICROBIOME OF **FISH** (OR ANY OTHER SPECIES!)
-## Jordan Briggs (j4100briggs@yahoo.com), Sara Thornburgh (sarathornburgh@g.ucla.edu)
-***
+## DATA ANALYSIS OF BACTERIAL MICROBIOME OF FISH 
+##### (OR ANY OTHER SPECIES)
+### Jordan Briggs (j4100briggs@yahoo.com), Sara Thornburgh (sarathornburgh@g.ucla.edu)
+
 
 ### Introduction:
 #### The purpose of the DAMFish program is to make analysis of microbiome census data easier and faster to researchers. It is often difficult to organize and combine massive datasets of taxonomic sequencing data and long OTU files. The DAMFish program combines the files using the Feature ID to keep them organized and processes them into R to be analyzed easily using the phyloseq package. The DAMFish program also outputs an alphabetically sorted OTU file and taxonomy file. The DAMFish program is also able to fill empty information in the taxonomy file with "unassigned" to make the merging of the OTU file and the taxonomy file easier to compile. 
