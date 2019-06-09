@@ -1,5 +1,4 @@
 # DAMFish
----------------
 ## DATA ANALYSIS OF BACTERIAL MICROBIOME OF FISH 
 ##### (OR ANY OTHER SPECIES)
 ### Jordan Briggs (j4100briggs@yahoo.com), Sara Thornburgh (sarathornburgh@g.ucla.edu)
