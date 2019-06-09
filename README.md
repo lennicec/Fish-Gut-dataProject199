@@ -1,4 +1,4 @@
-# DAMFish
+ DAMFish
 
 Data Analysis of Bacterial Microbiome of Fish
 (OR ANY OTHER SPECIES)
@@ -31,7 +31,7 @@ To use the program, go through these steps first to make sure your data files ar
 1. Make sure that the OTU and taxonomy files are compatible with one another (both have the same number of rows and the same Feature ID’s). 
 2. The first line in both files should be the header that contains the column names. There should not be spaces between words within the same column. 
 5. When running the DAMFish R program, install the following R packages in the Hoffman2 terminal using the following code:
-
+```r
 module load R
 R
 install.packages("ggplot2")
@@ -41,6 +41,7 @@ source('http://bioconductor.org/biocLite.R')
 biocLite('phyloseq')
 install.packages("remotes")
 remotes::install_github("vmikk/metagMisc")
+```r
 6. Make sure all the files that you wish to use this code on have their line ending in UNIX. This can be accomplished in the following way:
 	- MAC: Using Text Wrangler, open both files and save with an ending in UNIX.
 	- WINDOWS: Using Atom, download the "Converting Line Endings to" package. Open both files, and then, under packages, click on the package and select Unix. Save the file.
